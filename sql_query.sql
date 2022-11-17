@@ -46,6 +46,16 @@ from tr_penjualan_dqlab where qty*harga >= 200000
 order by qty*harga desc;
 
 
+# quesition 7
+# Come up with the customer_code, and the quantity of the product purchased, and the amount the price, then try to find the remainder of that quantity 
+# when divided by 3 because the marketing party wants to plot 1 marketing for 1 customer with 3 quantities maximum, so that the remaining unmonitored product 
+# quantity can be monitored of all products as the rest_quantity column as material for further analysis
+
+select kode_pelanggan, sum(qty), sum(harga) as totalHarga, qty mod 3 as sisaQty
+from tr_penjualan_dqlab
+group by kode_pelanggan ; 
+
+
 # question 8
 # Show the transaction code, transaction date, order number, and product code merged with the product name with the quantity equal to 5 from the existing database
 
